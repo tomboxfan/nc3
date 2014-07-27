@@ -1,8 +1,10 @@
 package com.juliusbaer.nc3.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -11,7 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="party_embargo_detail_hist")
-public class PartyEmbargoDetailHist extends com.juliusbaer.nc3.model.BaseEntity implements Serializable {
+public class PartyEmbargoDetailHist extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String identification;
@@ -38,9 +40,6 @@ public class PartyEmbargoDetailHist extends com.juliusbaer.nc3.model.BaseEntity 
 	@ManyToOne
 	@JoinColumn(name="WC_BL_RESULT_ID")
 	private WcBlResultHist wcBlResultHist;
-
-	public PartyEmbargoDetailHist() {
-	}
 
 	public String getIdentification() {
 		return this.identification;

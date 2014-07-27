@@ -1,9 +1,10 @@
 package com.juliusbaer.nc3.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * 
  */
 @Entity
-public class Party extends com.juliusbaer.nc3.model.BaseEntity implements Serializable {
+public class Party extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="ACT_TAKEN_REMARKS")
@@ -34,13 +35,6 @@ public class Party extends com.juliusbaer.nc3.model.BaseEntity implements Serial
 	@Column(name="MIDDLE_NAME")
 	private String middleName;
 
-	@Column(name="MODIFIED_BY")
-	private String modifiedBy;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="MODIFIED_ON")
-	private Date modifiedOn;
-
 	@Column(name="PARTY_NUMBER")
 	private String partyNumber;
 
@@ -52,9 +46,6 @@ public class Party extends com.juliusbaer.nc3.model.BaseEntity implements Serial
 	//bi-directional many-to-one association to PartyEmbargoDetail
 	@OneToMany(mappedBy="party")
 	private List<PartyEmbargoDetail> partyEmbargoDetails;
-
-	public Party() {
-	}
 
 	public String getActTakenRemarks() {
 		return this.actTakenRemarks;

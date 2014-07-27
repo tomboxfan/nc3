@@ -1,9 +1,14 @@
 package com.juliusbaer.nc3.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -12,7 +17,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="wc_bl_result")
-public class WcBlResult extends com.juliusbaer.nc3.model.BaseEntity implements Serializable {
+public class WcBlResult extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String category;
@@ -43,9 +48,6 @@ public class WcBlResult extends com.juliusbaer.nc3.model.BaseEntity implements S
 	//bi-directional many-to-one association to PartyEmbargoDetail
 	@OneToMany(mappedBy="wcBlResult")
 	private List<PartyEmbargoDetail> partyEmbargoDetails;
-
-	public WcBlResult() {
-	}
 
 	public String getCategory() {
 		return this.category;

@@ -1,8 +1,9 @@
 package com.juliusbaer.nc3.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -11,19 +12,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name="party_embargo_detail")
-public class PartyEmbargoDetail extends com.juliusbaer.nc3.model.BaseEntity implements Serializable {
+public class PartyEmbargoDetail extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String identification;
 
 	private String lang;
-
-	@Column(name="MODIFIED_BY")
-	private String modifiedBy;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="MODIFIED_ON")
-	private Date modifiedOn;
 
 	private String remarks;
 
@@ -39,9 +33,6 @@ public class PartyEmbargoDetail extends com.juliusbaer.nc3.model.BaseEntity impl
 	@ManyToOne
 	@JoinColumn(name="WC_BL_RESULT_ID")
 	private WcBlResult wcBlResult;
-
-	public PartyEmbargoDetail() {
-	}
 
 	public String getIdentification() {
 		return this.identification;

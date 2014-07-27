@@ -1,7 +1,5 @@
 package com.juliusbaer.nc3.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="activity_history")
-public class ActivityHistory extends com.juliusbaer.nc3.model.BaseEntity implements Serializable {
+public class ActivityHistory extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String description;
@@ -22,9 +20,6 @@ public class ActivityHistory extends com.juliusbaer.nc3.model.BaseEntity impleme
 	private int partyId;
 
 	private int version;
-
-	public ActivityHistory() {
-	}
 
 	public String getDescription() {
 		return this.description;
