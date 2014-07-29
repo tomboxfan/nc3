@@ -52,7 +52,7 @@
             below to use version 1.0.4.Final-redhat-4 which is a release certified to
             work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
             maven repository. -->
-        <!-- <version.jboss.bom>1.0.4.Final-redhat-4</version.jboss.bom>> -->
+        <!-- <version.jboss.bom>1.0.4.Final-redhat-4</version.jboss.bom> -->
 
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
@@ -66,6 +66,13 @@
 
     <dependencyManagement>
         <dependencies>
+		        <dependency>
+		            <groupId>org.jboss.arquillian</groupId>
+		            <artifactId>arquillian-bom</artifactId>
+		            <version>1.1.5.Final</version>
+		            <scope>import</scope>
+		            <type>pom</type>
+		        </dependency>
             <!-- JBoss distributes a complete set of Java EE 6 APIs including a Bill 
                 of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection) 
                 of artifacts. We use this here so that we always get the correct versions 
@@ -202,7 +209,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.6.Final</version>
 		</dependency>
 
     </dependencies>
@@ -305,6 +311,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>
